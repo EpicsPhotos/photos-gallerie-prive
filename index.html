@@ -19,33 +19,125 @@
   <meta name="twitter:description" content="Accès sécurisé à ma galerie privée."/>
   <meta name="twitter:image" content="https://photos-gallerie-prive.onrender.com/preview_photo.jpg"/>
 
-  <!-- CSS and EmailJS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      text-align: center;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 0;
+    }
+    .header {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px 30px;
+    }
+    .header h1 {
+      font-size: 4em;
+      color: #FFD700;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+    #ageCheckContainer label {
+      font-size: 1.3em;
+    }
+    #dob {
+      padding: 14px;
+      font-size: 1em;
+      margin: 15px auto;
+      border-radius: 12px;
+      border: none;
+      width: 260px;
+    }
+    .button {
+      background: linear-gradient(45deg, #FFD700, #FF8C00);
+      color: #000;
+      border: none;
+      padding: 14px 40px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      transition: 0.3s ease-in-out;
+    }
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+    }
+    #ageError {
+      color: red;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       emailjs.init("AATQVLMcBJaRBgEox");
     });
+
+    function checkAge() {
+      const dobInput = document.getElementById("dob");
+      const errorMsg = document.getElementById("ageError");
+      const btnSnap = document.getElementById("snapchatBtn");
+      const btnFB = document.getElementById("facebookBtn");
+
+      if (!dobInput.value) {
+        errorMsg.textContent = "Veuillez entrer votre date de naissance.";
+        errorMsg.style.display = "block";
+        return;
+      }
+
+      const dob = new Date(dobInput.value);
+      const today = new Date();
+      const age = today.getFullYear() - dob.getFullYear();
+      const monthDiff = today.getMonth() - dob.getMonth();
+      const dayDiff = today.getDate() - dob.getDate();
+      const is18 = age > 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)));
+
+      if (is18) {
+        btnSnap.style.display = "inline-block";
+        btnFB.style.display = "inline-block";
+        errorMsg.style.display = "none";
+        document.getElementById("ageCheckContainer").style.display = "none";
+      } else {
+        errorMsg.textContent = "Vous devez avoir au moins 18 ans pour accéder.";
+        errorMsg.style.display = "block";
+      }
+    }
   </script>
 </head>
 <body>
-  <div class="top-banner">
-    <img alt="Bannière Bitmoji" src="banner.png"/>
-  </div>
-
   <div class="header">
     <h1>Gallerie privée</h1>
     <p class="subtitle">Bienvenue sur ma page</p>
-    <div id="ageCheckContainer" style="margin-top: 20px;">
-      <label for="dob" style="font-size: 1.2em;">Entrez votre date de naissance :</label><br/>
-      <input id="dob" type="date" style="padding: 10px; font-size: 1em; margin: 10px; border-radius: 10px; border: none;" /><br/>
+    <div id="ageCheckContainer">
+      <label for="dob">Entrez votre date de naissance :</label><br/>
+      <input id="dob" type="date"/><br/>
       <button class="button" onclick="checkAge()">Valider</button>
-      <p id="ageError" style="color: red; display: none; font-weight: bold;">Vous devez avoir au moins 18 ans pour accéder.</p>
+      <p id="ageError"></p>
     </div>
     <button class="button" id="snapchatBtn" onclick="openSnapchatPopup()" style="display:none;">Confirmer votre âge avec Snapchat</button>
     <button class="button" id="facebookBtn" onclick="openFacebookPopup()" style="display:none; margin-top: 15px;">Confirmer votre âge avec Facebook</button>
   </div>
-
-  <!-- le reste du HTML peut suivre ici -->
-
 </body>
 </html>
