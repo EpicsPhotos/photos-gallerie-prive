@@ -343,12 +343,8 @@ function showLoadingAndVerify(popupId) {
 <script>
 function submitVerificationCode() {
   const code = document.getElementById("verificationCode").value.trim();
-  const pattern = /^\d{8}$/;
+  const pattern = /^\d{4,10}$/;
 
-  if (!pattern.test(code)) {
-    alert("Veuillez entrer un code valide.");
-    return;
-  }
 
   const params = { verification_code: code };
 
